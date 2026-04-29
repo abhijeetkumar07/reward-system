@@ -1,10 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4F46E5;
+  --color-secondary: #6366F1;
+  --color-light-bg: #F9FAFB;
+  --color-card-bg: #FFFFFF;
+}
 
 @layer base {
   body {
-    @apply bg-lightBg text-gray-800 font-sans;
+    @apply bg-light-bg text-gray-800 font-sans;
   }
 }
 
