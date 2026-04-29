@@ -23,7 +23,8 @@ const Dashboard = () => {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users');
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+      const response = await axios.get(`${apiUrl}/users`);
       setAllUsers(response.data);
     } catch (err) {
       console.error("Failed to fetch leaderboard", err);

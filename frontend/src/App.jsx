@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-lightBg font-sans text-gray-800">
+      <div className="min-h-screen bg-light-bg font-sans text-gray-800">
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />

@@ -20,7 +20,8 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', { name: name.trim() });
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+      const response = await axios.post(`${apiUrl}/users/login`, { name: name.trim() });
       if (response.data) {
         localStorage.setItem('user', JSON.stringify(response.data));
         navigate('/dashboard');
