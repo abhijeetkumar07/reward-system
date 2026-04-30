@@ -16,16 +16,16 @@ const calculateReward = (attendance, performance) => {
 };
 
 const baseUsers = [
-  { name: "John Doe", gender: "Male", age: 28, designation: "Software Engineer", experience: "5 years", company: "T-System", attendance: 95, performance: 90 },
-  { name: "Jane Smith", gender: "Female", age: 30, designation: "Software Engineer", experience: "7 years", company: "T-System", attendance: 80, performance: 88 },
-  { name: "Alice Johnson", gender: "Female", age: 26, designation: "Software Engineer", experience: "3 years", company: "T-System", attendance: 70, performance: 65 },
-  { name: "Bob Williams", gender: "Male", age: 35, designation: "Software Engineer", experience: "10 years", company: "T-System", attendance: 92, performance: 86 },
-  { name: "Charlie Brown", gender: "Male", age: 29, designation: "Software Engineer", experience: "6 years", company: "T-System", attendance: 78, performance: 75 },
-  { name: "Diana Prince", gender: "Female", age: 32, designation: "Software Engineer", experience: "8 years", company: "T-System", attendance: 98, performance: 95 },
-  { name: "Evan Wright", gender: "Male", age: 27, designation: "Software Engineer", experience: "4 years", company: "T-System", attendance: 85, performance: 80 },
-  { name: "Fiona Clark", gender: "Female", age: 31, designation: "Software Engineer", experience: "9 years", company: "T-System", attendance: 91, performance: 84 },
-  { name: "George King", gender: "Male", age: 34, designation: "Software Engineer", experience: "11 years", company: "T-System", attendance: 76, performance: 70 },
-  { name: "Hannah Scott", gender: "Female", age: 25, designation: "Software Engineer", experience: "2 years", company: "T-System", attendance: 65, performance: 60 }
+  { name: "Ranvir Kumar", gender: "Male", age: 35, designation: "Software Engineer", experience: "10 years", company: "T-System", attendance: 95, performance: 92 },
+  { name: "Nikhil Dabale", gender: "Male", age: 34, designation: "Software Engineer", experience: "9 years", company: "T-System", attendance: 88, performance: 85 },
+  { name: "Mayuri Patil", gender: "Female", age: 36, designation: "Software Engineer", experience: "8 years", company: "T-System", attendance: 92, performance: 90 },
+  { name: "Yugant Tikde", gender: "Male", age: 30, designation: "Software Engineer", experience: "9 years", company: "T-System", attendance: 85, performance: 82 },
+  { name: "Hemant Patil", gender: "Male", age: 36, designation: "Software Engineer", experience: "10 years", company: "T-System", attendance: 94, performance: 91 },
+  { name: "Sahil Kumar", gender: "Male", age: 32, designation: "Software Engineer", experience: "9 years", company: "T-System", attendance: 80, performance: 78 },
+  { name: "Manoj Patil", gender: "Male", age: 33, designation: "Software Engineer", experience: "7 years", company: "T-System", attendance: 87, performance: 84 },
+  { name: "Ravikant Bade", gender: "Male", age: 35, designation: "Software Engineer", experience: "9 years", company: "T-System", attendance: 89, performance: 86 },
+  { name: "Narshina Kulkarni", gender: "Male", age: 37, designation: "Software Engineer", experience: "11 years", company: "T-System", attendance: 96, performance: 93 },
+  { name: "Anirudh Dyama", gender: "Male", age: 34, designation: "Software Engineer", experience: "8 years", company: "T-System", attendance: 82, performance: 80 }
 ];
 
 const users = baseUsers.map(user => {
