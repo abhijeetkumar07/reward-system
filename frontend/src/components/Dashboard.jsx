@@ -7,6 +7,7 @@ import Analytics from './Analytics';
 import EmployeeDirectory from './EmployeeDirectory';
 import Departments from './Departments';
 import Reports from './Reports';
+import Profile from './Profile';
 import { Briefcase, Calendar, TrendingUp, TrendingDown, Award, Star, Cpu, AlertTriangle, Activity, Users } from 'lucide-react';
 
 const Dashboard = () => {
@@ -32,6 +33,35 @@ const Dashboard = () => {
     } catch (err) {
       console.error("Failed to fetch leaderboard", err);
     }
+  };
+
+  const exportToCSV = () => {
+    if (!allUsers || allUsers.length === 0) return;
+    
+    const headers = ['Name', 'Designation', 'Company', 'Experience', 'Attendance', 'Performance', 'Rewards', 'Badge'];
+    const csvContent = [
+      headers.join(','),
+      ...allUsers.map(u => [
+        `"${u.name || ''}"`,
+        `"${u.designation || ''}"`,
+        `"${u.company || ''}"`,
+        `"${u.experience || ''}"`,
+        u.attendance || 0,
+        u.performance || 0,
+        u.rewards || 0,
+        `"${u.badge || ''}"`
+      ].join(','))
+    ].join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'enterprise_report.csv');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   if (!user) return null;
@@ -72,10 +102,16 @@ const Dashboard = () => {
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Welcome back, {user.name}. Here is your enterprise workforce summary.</p>
           </div>
           <div className="flex space-x-3">
-            <button className="bg-white dark:bg-dark-card border border-gray-300 dark:border-dark-border text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-dark-bg transition-colors shadow-sm">
+            <button 
+              onClick={exportToCSV}
+              className="bg-white dark:bg-dark-card border border-gray-300 dark:border-dark-border text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-dark-bg transition-colors shadow-sm"
+            >
               Export Report
             </button>
-            <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm">
+            <button 
+              onClick={() => setActiveTab('Profile')}
+              className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm"
+            >
               View Profile
             </button>
           </div>
@@ -248,6 +284,10 @@ const Dashboard = () => {
 
         {activeTab === 'Reports' && (
           <Reports />
+        )}
+
+        {activeTab === 'Profile' && (
+          <Profile user={user} />
         )}
 
       </main>
